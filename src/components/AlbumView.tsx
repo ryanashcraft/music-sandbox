@@ -2,11 +2,11 @@ import * as React from 'react';
 import { css } from 'emotion';
 
 import ArtworkView from './ArtworkView';
-import { Album, queueAlbum, play } from '../music-kit';
+import { queueAlbum, play } from '../music-kit';
 import * as Text from './Text';
 
 interface Props {
-  data: Album;
+  data: MusicKit.Album;
   width: number;
 }
 

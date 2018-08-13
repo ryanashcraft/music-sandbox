@@ -2,10 +2,8 @@ import * as React from 'react';
 import { css } from 'emotion';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { Artwork } from '../music-kit';
-
 interface Props {
-  data: Artwork;
+  data: MusicKit.Artwork;
   onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
   height: number;
   width: number;

@@ -9,12 +9,9 @@ import * as Text from './Text';
 
 import {
   getHistoryHeavyRotation,
-  PlayableObject,
   play,
   pause,
-  onPlaybackStateChange,
-  PlaybackStateChange,
-  PlaybackStates
+  onPlaybackStateChange
 } from '../music-kit';
 import AuthorizeButton from './AuthorizeButton';
 
@@ -25,7 +22,7 @@ enum View {
 
 interface State {
   view: View;
-  data: Array<PlayableObject>;
+  data: Array<MusicKit.PlayableObject>;
   playbackState: number;
 }
 
@@ -34,7 +31,7 @@ const columnWidth = 180;
 class App extends React.Component<{}, State> {
   state = {
     view: View.HeavyRotation,
-    data: [] as Array<PlayableObject>,
+    data: [] as Array<MusicKit.PlayableObject>,
     playbackState: 0
   };
 
@@ -49,7 +46,7 @@ class App extends React.Component<{}, State> {
     onPlaybackStateChange(this.onPlaybackStateChange);
   }
 
-  onPlaybackStateChange = (stateChange: PlaybackStateChange) => {
+  onPlaybackStateChange = (stateChange: MusicKit.PlaybackStateChange) => {
     this.setState({
       playbackState: stateChange.state
     });
@@ -107,7 +104,7 @@ class App extends React.Component<{}, State> {
         <PlayControls
           play={play}
           pause={pause}
-          isPlaying={state.playbackState === PlaybackStates.playing}
+          isPlaying={state.playbackState === MusicKit.PlaybackStates.playing}
         />
       </>
     );
